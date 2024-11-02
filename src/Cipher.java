@@ -14,10 +14,12 @@ public class Cipher {
         char[] charText = text.toCharArray();
 
         for (int i = 0; i < charText.length; i++) {
+            if (charText[i] == '\n'){
+                continue;
+            }
 
             boolean charFound = false;
             for (int j = 0; j < alphabet.length; j++) {
-
 
                 if (alphabet[j] == Character.toLowerCase(charText[i])) {
                     charFound = true;
@@ -43,6 +45,10 @@ public class Cipher {
         char[] charText = encryptedText.toCharArray();
 
         for (int i = 0; i < charText.length; i++) {
+
+            if (charText[i] == '\n'){
+                continue;
+            }
 
            boolean charFound = false;
             for (int j = 0; j < alphabet.length; j++) {

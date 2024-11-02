@@ -11,14 +11,16 @@ public class FileHandler {
         try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
             String line;
             while ((line = reader.readLine()) != null) {
-                text.append(line);
+                text.append(line).append("\n");
             }
         }
         return text.toString();
     }
 
     public static void writeFile(String text,String newFilePath) throws IOException {
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter(newFilePath))) {
+        newFilePath = newFilePath.substring(0, newFilePath.lastIndexOf('\\')+1);
+
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(newFilePath+"new_file_encrypt.txt"))) {
             writer.write(text);
         }
     }

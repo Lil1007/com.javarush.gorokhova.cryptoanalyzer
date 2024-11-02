@@ -56,13 +56,12 @@ public class Application {
 
                         fileText = cipher.encrypt(fileText, key);
 
-                        FileHandler.writeFile(fileText, "new_file_encrypt.txt");
+                        FileHandler.writeFile(fileText, path);
 
                         System.out.println("Файл успешно зашифрован!");
                     } catch (IOException e) {
                         System.err.println("Ошибка при обработке файлов: " + e.getMessage());
                     }
-
                     continue;
 
                 case 2:
@@ -71,13 +70,12 @@ public class Application {
 
                         fileText = cipher.decrypt(fileText, key);
 
-                        FileHandler.writeFile(fileText, "new_file_decrypt.txt");
+                        FileHandler.writeFile(fileText, path);
 
                         System.out.println("Файл успешно расшифрован!");
                     } catch (IOException e) {
                         System.err.println("Ошибка при обработке файлов: " + e.getMessage());
                     }
-
                     continue;
                 case 3:
                     try {
@@ -85,14 +83,12 @@ public class Application {
 
                         fileText = cipher.bruteForce(fileText);
 
-                        FileHandler.writeFile(fileText, "new_file_brute_force.txt");
+                        FileHandler.writeFile(fileText, path);
 
                         System.out.println("Файл успешно расшифрован!");
                     } catch (IOException e) {
                         System.err.println("Ошибка при обработке файлов: " + e.getMessage());
                     }
-
-                    continue;
             }
         }
     }
